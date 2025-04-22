@@ -22,13 +22,13 @@ Build and deploy the containers:
 
 Open a browser and attempt the following routes:
 
-1. `localhost`
+1. `http://localhost`
 
 This will redirect from HTTP to HTTPS, and return 403 Forbidden.
 
-2. `localhost/test`
+2. `https://localhost/test`
 
-This will also redirect to HTTPS and return 403 Forbidden
+This will return 403 Forbidden.
 
 3. `https://localhost/?token=token-bm08jm12`
 

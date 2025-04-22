@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  proxy:
+    build:
+      context: ./proxy
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf
+      - ./proxy/ssl:/etc/nginx/ssl
+      - ./proxy/.htpasswd:/etc/nginx/.htpasswd
+    ports:
+      - "443:443"
+    depends_on:
+      - web-server
+    networks:
+      - app-network
+  web-server:
+    build:
+      context: ./content
+    networks:
+      - app-network
+networks:
+  app-network:
